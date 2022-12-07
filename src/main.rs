@@ -1,6 +1,6 @@
-use design_patterns::patterns::mediator::control_tower::ControlTower;
-use design_patterns::patterns::mediator::plane::Plane;
-use design_patterns::utils::message_printing::create_title;
+use design_patterns::patterns::mediator::control_tower::*;
+use design_patterns::patterns::mediator::plane::*;
+use design_patterns::utils::message_printing::*;
 
 pub fn main(){
     let control_tower = ControlTower::new();

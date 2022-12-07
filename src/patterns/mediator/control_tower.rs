@@ -1,4 +1,4 @@
-use crate::patterns::mediator::mediator::Mediator;
+use crate::patterns::mediator::mediator::*;
 
 pub struct ControlTower {
 
