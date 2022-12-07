@@ -1,5 +1,5 @@
-use crate::mediator::control_tower::ControlTower;
-use crate::mediator::mediator::Mediator;
+use crate::patterns::mediator::control_tower::ControlTower;
+use crate::patterns::mediator::mediator::Mediator;
 
 pub struct Plane<'a> {
     control_tower: &'a ControlTower

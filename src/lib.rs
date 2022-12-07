@@ -1,4 +1,4 @@
-pub mod mediator;
+pub mod patterns;
 pub mod utils;
 
 pub fn add(left: usize, right: usize) -> usize {
