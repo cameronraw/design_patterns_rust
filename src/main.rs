@@ -1,12 +1,16 @@
 use design_patterns::mediator::control_tower::ControlTower;
 use design_patterns::mediator::plane::Plane;
+use design_patterns::utils::message_printing::create_title;
 
 pub fn main(){
     let control_tower = ControlTower::new();
-    let plane = Plane::new(&control_tower);
+    let plane_1 = Plane::new(&control_tower);
+    let plane_2 = Plane::new(&control_tower);
+    let plane_3 = Plane::new(&control_tower);
 
-    println!("Mediator Pattern");
-    println!("----------------\n");
+    create_title("Mediator Pattern");
 
-    plane.contact_tower("Hello there, tower!");
+    plane_1.contact_tower("Hello there, tower! This is Plane 1");
+    plane_2.contact_tower("Plane 2 here, looking for a landing");
+    plane_3.contact_tower("This is plane 3, looking to takeoff");
 }
