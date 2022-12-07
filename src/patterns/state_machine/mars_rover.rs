@@ -15,21 +15,17 @@ impl MarsRover {
     pub fn execute(&mut self, command_string: &str) -> String {
         command_string.chars().for_each(|cmd| {
             if cmd == 'R' {
-                self.current_orientation = self.turn_right();
+                self.current_orientation = self.current_orientation.to_right();
             }
         });
 
+        self.get_current_state()
+    }
+
+    fn get_current_state(&self) -> String {
         format!("0:0:{}", self.current_orientation.get_char())
     }
 
-    fn turn_right(&self) -> Orientation {
-        match &self.current_orientation {
-            NORTH => EAST,
-            EAST => SOUTH,
-            SOUTH => WEST,
-            WEST => NORTH
-        }
-    }
 }
 
 #[allow(non_snake_case)]

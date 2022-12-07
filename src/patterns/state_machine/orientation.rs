@@ -14,4 +14,13 @@ impl Orientation {
             Orientation::WEST => 'W'
         }
     }
+
+    pub fn to_right(&self) -> Orientation {
+        match self {
+            Orientation::NORTH => Orientation::EAST,
+            Orientation::EAST => Orientation::SOUTH,
+            Orientation::SOUTH => Orientation::WEST,
+            Orientation::WEST => Orientation::NORTH
+        }
+    }
 }
