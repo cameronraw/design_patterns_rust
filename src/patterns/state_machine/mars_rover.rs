@@ -1,31 +1,33 @@
+use crate::patterns::state_machine::orientation::Orientation;
+use crate::patterns::state_machine::orientation::Orientation::{EAST, NORTH, SOUTH, WEST};
+
 pub struct MarsRover {
-    current_orientation: char
+    current_orientation: Orientation
 }
 
 impl MarsRover {
     pub fn new() -> Self {
         MarsRover {
-            current_orientation: 'N'
+            current_orientation: NORTH
         }
     }
 
     pub fn execute(&mut self, command_string: &str) -> String {
         command_string.chars().for_each(|cmd| {
             if cmd == 'R' {
-                self.current_orientation = self.handle_r_command();
+                self.current_orientation = self.turn_right();
             }
         });
 
-        format!("0:0:{}", self.current_orientation)
+        format!("0:0:{}", self.current_orientation.get_char())
     }
 
-    fn handle_r_command(&self) -> char {
+    fn turn_right(&self) -> Orientation {
         match &self.current_orientation {
-            'N' => 'E',
-            'E' => 'S',
-            'S' => 'W',
-            'W' => 'N',
-            _ => { panic!("Invalid orientation: {}", &self.current_orientation) }
+            NORTH => EAST,
+            EAST => SOUTH,
+            SOUTH => WEST,
+            WEST => NORTH
         }
     }
 }
